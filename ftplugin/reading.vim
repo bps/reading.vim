@@ -10,6 +10,7 @@ augroup reading
     au!
     au BufEnter * call <SID>enter_reading_buffer()
     au BufLeave * call <SID>leave_reading_buffer()
+    au ColorScheme * if &filetype == "reading" | call <SID>show_cursor() | call <SID>hide_cursor() | endif
 augroup END
 
 function! s:enter_reading_buffer()
@@ -33,8 +34,6 @@ function! s:leave_reading_buffer()
     endif
     if exists("g:reading_hi_cursor") && exists("g:reading_hi_matchparen")
         call s:show_cursor()
-        unlet g:reading_hi_cursor
-        unlet g:reading_hi_matchparen
     endif
 endfunction
 
@@ -60,6 +59,8 @@ function! s:show_cursor()
     if exists("g:reading_hi_cursor") && exists("g:reading_hi_matchparen")
         execute "hi! Cursor ".g:reading_hi_cursor
         execute "hi! MatchParen ".g:reading_hi_matchparen
+        unlet g:reading_hi_cursor
+        unlet g:reading_hi_matchparen
     endif
 endfunction
 
