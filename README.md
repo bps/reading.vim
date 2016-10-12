@@ -18,3 +18,7 @@ Run `:setf reading` in a buffer you want to read.
 ## Assumptions
 
 The format assumed here is single-line paragraphs with a blank line separating each.
+
+## Screenshot
+
+![reading.vim screenshot](/readingdotvim.png?raw=true)
