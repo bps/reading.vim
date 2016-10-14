@@ -6,6 +6,7 @@ let b:did_ftplugin = 1
 setlocal nomodifiable wrap linebreak cursorline
 nnoremap <buffer> <silent> j :call search('^\zs.*\S', 'W')<CR>
 nnoremap <buffer> <silent> k 0:call search('^\zs.*\S', 'bW')<CR>
+nmap <buffer> <silent> <Space> jz<CR>
 augroup reading
     au!
     au BufEnter * call <SID>enter_reading_buffer()
